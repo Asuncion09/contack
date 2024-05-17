@@ -30,6 +30,10 @@ export class UsersService {
     });
   }
 
+  async findOne(id: string) {
+    return await this.userRepository.findOneBy({ id });
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto) {
     return await this.userRepository.update(id, updateUserDto);
   }
