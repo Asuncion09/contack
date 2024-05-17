@@ -7,9 +7,8 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
 
     TypeOrmModule.forRoot({
@@ -19,13 +18,13 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      ssl: process.env.POSTGRES_SSL === "true",
+      ssl: process.env.POSTGRES_SSL === 'true',
       extra: {
         ssl:
-          process.env.POSTGRES_SSL === "true"
+          process.env.POSTGRES_SSL === 'true'
             ? {
-              rejectUnauthorized: false,
-            }
+                rejectUnauthorized: false,
+              }
             : null,
       },
       autoLoadEntities: true,
@@ -38,4 +37,4 @@ import { ConfigModule } from '@nestjs/config';
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}
